@@ -22,7 +22,9 @@ A Python utility for backing up media files from an Immich server instance while
 
 ## Installation
 
-1. Clone the repository:
+> **Important**: Install and run the application from a local directory with proper write permissions (not from an external drive).
+
+1. Clone the repository to a local directory:
 ```shell
 git clone https://github.com/vijayyadav1002/immich-backup.git
 cd immich-backup
@@ -43,6 +45,23 @@ source venv/bin/activate
 ```shell
 pip install -r requirements.txt
 ```
+
+## Troubleshooting
+
+### Virtual Environment Creation Fails
+If you see an error like:
+```
+Error: [Errno 1] Operation not permitted: 'lib' -> '/path/to/venv/lib64'
+```
+This usually means:
+- You're trying to create the virtual environment on a mounted/external drive
+- The directory has insufficient permissions
+- The filesystem doesn't support symbolic links
+
+Solution:
+1. Change to a local directory with proper permissions
+2. Create and run the application from there
+3. You can still configure backup paths to external drives in the `.env` file
 
 ## Configuration
 
