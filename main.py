@@ -24,9 +24,6 @@ if not all([DBUSER, DBPASS, DBHOST, DBPORT, DBNAME, BASE_TARGET_PATH_IMAGES, BAS
 # Database configuration
 DATABASE_URI = f"postgresql+psycopg2://{DBUSER}:{DBPASS}@{DBHOST}:{DBPORT}/{DBNAME}"
 
-# Base target paths for copying files based on type
-# BASE_TARGET_PATH_IMAGES = '/Volumes/T7 Touch/backup-immich/{}/images'
-# BASE_TARGET_PATH_VIDEOS = '/Volumes/T7 Touch/backup-immich/{}/videos'
 
 # Connect to PostgreSQL database
 engine = create_engine(DATABASE_URI)
