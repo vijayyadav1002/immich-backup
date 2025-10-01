@@ -14,6 +14,7 @@ DBNAME = os.getenv('DBNAME')
 BASE_TARGET_PATH_IMAGES = os.getenv('BASE_TARGET_PATH_IMAGES')
 BASE_TARGET_PATH_VIDEOS = os.getenv('BASE_TARGET_PATH_VIDEOS')
 SOURCE_BASE_PATH = os.getenv('SOURCE_BASE_PATH')
+STRIP_STRING = os.getenv('STRIP_STRING')
 
 
 # Ensure environment variables are set
@@ -35,8 +36,8 @@ session = Session()
 
 # Reflect the existing table in the database
 metadata = MetaData()
-assets_table = Table('assets', metadata, autoload_with=engine, schema='public')
-users_table = Table('users', metadata, autoload_with=engine, schema='public')
+assets_table = Table('asset', metadata, autoload_with=engine, schema='public')
+users_table = Table('user', metadata, autoload_with=engine, schema='public')
 users = dict()
 
 def get_user(id: str) -> object:
@@ -103,7 +104,7 @@ def copy_files():
 
         # Copy the file to the target folder
         try:
-            source_file_path = os.path.join(SOURCE_BASE_PATH, original_path.lstrip('upload/'))
+            source_file_path = os.path.join(SOURCE_BASE_PATH, original_path.lstrip(STRIP_STRING))
             shutil.copy(source_file_path, target_path)
             # Set the modification and access times to fileCreatedAt
             os.utime(target_path, (modified_time, modified_time))
