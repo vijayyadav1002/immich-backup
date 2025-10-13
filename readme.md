@@ -78,7 +78,7 @@ DBPORT=5432           # Database port
 BASE_TARGET_PATH_IMAGES=/path/to/backup/folder/{}/images
 BASE_TARGET_PATH_VIDEOS=/path/to/backup/folder/{}/videos
 SOURCE_BASE_PATH=/path/to/immich/upload/folder
-STRIP_STRING=/path/to/database/mount/of/resources // eg: /data/upload/
+STRIP_STRING=/path/to/database/mount/of/resources // eg: /data/upload/ or /usr/src/app/upload ... check the docker compose file
 ```
 
 ## Usage
